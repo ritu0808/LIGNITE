@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lignite</title>
+    <link rel = "stylesheet" href = "dashboard.css">
+     <script src="https://unpkg.com/lucide@latest"></script>
+     <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+/>
+</head>
+<body>
+          
+       <div class="stats-container">
+
+    <!-- Total Mines -->
+    <div class="stat-card">
+        <div class="stat-icon">
+            <i data-lucide="factory"></i>
+        </div>
+
+        <div>
+            <p>Total Mines</p>
+            <h2>24</h2>
+        </div>
+    </div>
+
+
+    <!-- Average Compliance -->
+    <div class="stat-card">
+        <div class="stat-icon">
+            <i data-lucide="shield-check"></i>
+        </div>
+
+        <div>
+            <p>Average Compliance</p>
+            <h2>94.2%</h2>
+        </div>
+    </div>
+
+
+    <!-- High Risk Mines -->
+    <div class="stat-card">
+        <div class="stat-icon">
+            <i data-lucide="triangle-alert"></i>
+        </div>
+
+        <div>
+            <p>High Risk Mines</p>
+            <h2>04</h2>
+        </div>
+    </div>
+
+
+    <!-- Open Violations -->
+    <div class="stat-card">
+        <div class="stat-icon">
+            <i data-lucide="shield-alert"></i>
+        </div>
+
+        <div>
+            <p>Open Violations</p>
+            <h2>12</h2>
+        </div>
+    </div>
+
+
+    <!-- Pending Inspections -->
+    <div class="stat-card">
+        <div class="stat-icon">
+            <i data-lucide="clipboard-clock"></i>
+        </div>
+
+        <div>
+            <p>Pending Inspections</p>
+            <h2>09</h2>
+        </div>
+    </div>
+
+</div>
+
+ <script>
+    lucide.createIcons();
+</script>
+
+<!-- compliance trend card  -->
+
+
+<div class = "dashboard-analytics">
+
+    <div class="compliance-card">
+
+      <div class="card-header">
+        <div>
+            <h3>Compliance Trend</h3>
+            <p>Overall compliance performance</p>
+        </div>
+
+        <select id="trendFilter">
+            <option value="6">Last 6 Months</option>
+            <option value="12">Last 12 Months</option>
+        </select>
+    </div>
+
+    <div class="chart-box">
+        <canvas id="complianceChart"></canvas>
+    </div>
+
+  </div>
+
+<!-- risk distribution -->
+ 
+
+ <div class="risk-card">
+
+    <div class="risk-header">
+        <div>
+            <h3>Risk Distribution</h3>
+            <p>Current mine risk levels</p>
+        </div>
+
+        <select id="riskFilter">
+            <option value="all">All Mines</option>
+            <option value="open">Open Risks</option>
+        </select>
+    </div>
+
+    <div class="risk-content">
+
+        <!-- Doughnut Chart -->
+        <div class="risk-chart">
+            <canvas id="riskChart"></canvas>
+
+            <div class="risk-center">
+                <strong>24</strong>
+                <span>Mines</span>
+            </div>
+        </div>
+
+        <!-- Legend -->
+        <div class="risk-legend">
+
+            <div class="risk-item">
+                <span class="risk-dot low"></span>
+                <div>
+                    <strong>Low Risk</strong>
+                    <small>12 Mines</small>
+                </div>
+                <b>50%</b>
+            </div>
+
+            <div class="risk-item">
+                <span class="risk-dot medium"></span>
+                <div>
+                    <strong>Medium Risk</strong>
+                    <small>7 Mines</small>
+                </div>
+                <b>29%</b>
+            </div>
+
+            <div class="risk-item">
+                <span class="risk-dot high"></span>
+                <div>
+                    <strong>High Risk</strong>
+                    <small>4 Mines</small>
+                </div>
+                <b>17%</b>
+            </div>
+
+            <div class="risk-item">
+                <span class="risk-dot critical"></span>
+                <div>
+                    <strong>Critical</strong>
+                    <small>1 Mine</small>
+                </div>
+                <b>4%</b>
+            </div>
+
+            </div>
+
+      </div>
+
+  </div>
+
+</div>
+
+<!-- recent alert , top violations -->
+
+<!-- Recent Alerts + Top Violations -->
+
+<div class="dashboard-analytics alerts-violations-row">
+
+    <!-- Recent Alerts -->
+    <div class="alerts-card">
+
+        <div class="alerts-header">
+            <div>
+                <h3>Recent Alerts</h3>
+                <p>Latest system alerts and notifications</p>
+            </div>
+
+            <button class="view-all-btn">
+                View All →
+            </button>
+        </div>
+
+
+        <div class="alerts-list">
+
+            <div class="alert-item">
+                <div class="alert-icon warning">
+                    <i data-lucide="triangle-alert"></i>
+                </div>
+
+                <div class="alert-info">
+                    <strong>High Risk Detected</strong>
+                    <span>Mine 07 • 15 min ago</span>
+                </div>
+
+                <span class="alert-status high-alert">
+                    High
+                </span>
+            </div>
+
+
+            <div class="alert-item">
+                <div class="alert-icon danger">
+                    <i data-lucide="shield-alert"></i>
+                </div>
+
+                <div class="alert-info">
+                    <strong>Compliance Deadline</strong>
+                    <span>Mine 04 • 1 hour ago</span>
+                </div>
+
+                <span class="alert-status critical-alert">
+                    Critical
+                </span>
+            </div>
+
+
+            <div class="alert-item">
+                <div class="alert-icon info">
+                    <i data-lucide="clipboard-check"></i>
+                </div>
+
+                <div class="alert-info">
+                    <strong>Inspection Completed</strong>
+                    <span>Mine 12 • 2 hours ago</span>
+                </div>
+
+                <span class="alert-status normal-alert">
+                    Normal
+                </span>
+            </div>
+
+
+            <div class="alert-item">
+                <div class="alert-icon warning">
+                    <i data-lucide="clock-3"></i>
+                </div>
+
+                <div class="alert-info">
+                    <strong>Inspection Pending</strong>
+                    <span>Mine 08 • 3 hours ago</span>
+                </div>
+
+                <span class="alert-status medium-alert">
+                    Medium
+                </span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Top Violations -->
+    <div class="violations-card">
+
+        <div class="violations-header">
+            <div>
+                <h3>Top Violations</h3>
+                <p>Most frequently reported violations</p>
+            </div>
+
+            <button class="view-all-btn">
+                View All →
+            </button>
+        </div>
+
+
+        <div class="violations-list">
+
+            <div class="violation-item">
+
+                <div class="violation-rank">
+                    01
+                </div>
+
+                <div class="violation-info">
+                    <strong>Safety Equipment</strong>
+                    <span>18 violations</span>
+                </div>
+
+                <div class="violation-bar">
+                    <span style="width: 90%;"></span>
+                </div>
+
+            </div>
+
+
+            <div class="violation-item">
+
+                <div class="violation-rank">
+                    02
+                </div>
+
+                <div class="violation-info">
+                    <strong>Environmental Compliance</strong>
+                    <span>14 violations</span>
+                </div>
+
+                <div class="violation-bar">
+                    <span style="width: 72%;"></span>
+                </div>
+
+            </div>
+
+
+            <div class="violation-item">
+
+                <div class="violation-rank">
+                    03
+                </div>
+
+                <div class="violation-info">
+                    <strong>Worker Safety</strong>
+                    <span>11 violations</span>
+                </div>
+
+                <div class="violation-bar">
+                    <span style="width: 58%;"></span>
+                </div>
+
+            </div>
+
+
+            <div class="violation-item">
+
+                <div class="violation-rank">
+                    04
+                </div>
+
+                <div class="violation-info">
+                    <strong>Documentation</strong>
+                    <span>8 violations</span>
+                </div>
+
+                <div class="violation-bar">
+                    <span style="width: 42%;"></span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+    lucide.createIcons();
+</script>
+
+
+
+<!-- recent inspections -->
+ <br><br>
+
+<div class="inspection-card">
+
+    <div class="inspection-header">
+        <div>
+            <h3>Recent Inspections</h3>
+            <p>Latest field inspection activities</p>
+        </div>
+
+        <button class="view-all-btn">
+            View All →
+        </button>
+    </div>
+
+
+    <div class="inspection-table">
+
+        <!-- Table Header -->
+        <div class="inspection-row inspection-head">
+            <span>Mine</span>
+            <span>Inspection Type</span>
+            <span>Date</span>
+            <span>Inspector</span>
+            <span>Status</span>
+            <span></span>
+        </div>
+
+
+        <!-- Inspection 1 -->
+        <div class="inspection-row">
+
+            <span class="mine-name">
+                Mine 01
+            </span>
+
+            <span>
+                Safety Inspection
+            </span>
+
+            <span>
+                10 Sep 2026
+            </span>
+
+            <span>
+                A. Sharma
+            </span>
+
+            <span>
+                <span class="status completed">
+                    Completed
+                </span>
+            </span>
+
+            <button class="view-btn">
+                View
+            </button>
+
+        </div>
+
+
+        <!-- Inspection 2 -->
+        <div class="inspection-row">
+
+            <span class="mine-name">
+                Mine 04
+            </span>
+
+            <span>
+                Environmental
+            </span>
+
+            <span>
+                09 Sep 2026
+            </span>
+
+            <span>
+                R. Singh
+            </span>
+
+            <span>
+                <span class="status pending">
+                    Pending
+                </span>
+            </span>
+
+            <button class="view-btn">
+                View
+            </button>
+
+        </div>
+
+
+        <!-- Inspection 3 -->
+        <div class="inspection-row">
+
+            <span class="mine-name">
+                Mine 08
+            </span>
+
+            <span>
+                Equipment Safety
+            </span>
+
+            <span>
+                08 Sep 2026
+            </span>
+
+            <span>
+                P. Verma
+            </span>
+
+            <span>
+                <span class="status completed">
+                    Completed
+                </span>
+            </span>
+
+            <button class="view-btn">
+                View
+            </button>
+
+        </div>
+
+
+        <!-- Inspection 4 -->
+        <div class="inspection-row">
+
+            <span class="mine-name">
+                Mine 12
+            </span>
+
+            <span>
+                Compliance Audit
+            </span>
+
+            <span>
+                07 Sep 2026
+            </span>
+
+            <span>
+                S. Patel
+            </span>
+
+            <span>
+                <span class="status review">
+                    Under Review
+                </span>
+            </span>
+
+            <button class="view-btn">
+                View
+            </button>
+
+         </div>
+
+       </div>
+
+   </div>
+
+  </div>
+
+</div>
+
+
+<!-- gis preview -->
+
+<!-- ================================
+     GIS OVERVIEW
+================================ -->
+
+<div class="gis-preview-card">
+
+    <div class="gis-preview-header">
+
+        <div>
+            <h3>Mine Locations</h3>
+
+            <p>
+                Geographic overview of monitored coal mines
+            </p>
+        </div>
+
+        <a href="gis.html" class="gis-view-btn">
+            View Full Map →
+        </a>
+
+    </div>
+
+
+    <div class="gis-preview-content">
+
+        <!-- MAP -->
+
+        <div id="dashboardMap"></div>
+
+
+        <!-- MAP SIDE INFO -->
+
+        <div class="gis-preview-info">
+
+            <div class="gis-info-title">
+                <span>LIVE GIS OVERVIEW</span>
+                <h4>Mine Network</h4>
+            </div>
+
+
+            <div class="gis-stat">
+
+                <div>
+                    <span>ACTIVE MINES</span>
+                    <strong>24</strong>
+                </div>
+
+            </div>
+
+              <div class="gis-stat">
+
+                <div>
+                    <span>LOW RISK</span>
+                    <strong class="high-number">12</strong>
+                </div>
+
+            </div>
+
+              <div class="gis-stat">
+
+                <div>
+                    <span>MEDIUM RISK</span>
+                    <strong class="high-number">7</strong>
+                </div>
+
+            </div>
+
+
+            <div class="gis-stat">
+
+                <div>
+                    <span>HIGH RISK</span>
+                    <strong class="high-number">04</strong>
+                </div>
+
+            </div>
+
+
+            <div class="gis-stat">
+
+                <div>
+                    <span>Critical</span>
+                    <strong>1</strong>
+                </div>
+
+            </div>
+
+
+            <div class="gis-risk-legend">
+
+                <div>
+                    <span class="gis-dot low"></span>
+                    Low Risk
+                </div>
+
+                <div>
+                    <span class="gis-dot medium"></span>
+                    Medium
+                </div>
+
+                <div>
+                    <span class="gis-dot high"></span>
+                    High Risk
+                </div>
+
+                <div>
+                    <span class="gis-dot critical"></span>
+                    Critical
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+ <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+</script>
+ <script src="https://unpkg.com/lucide@latest"></script>
+ <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+ <script src = "dashboard.js"></script>
+</body>
+</html>

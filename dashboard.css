@@ -1,0 +1,920 @@
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 18px;
+    margin-top: 30px;
+}
+
+.stat-card {
+    background: #171717;
+    border: 1px solid #292929;
+    border-radius: 16px;
+    padding: 22px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.stat-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #252525;
+}
+
+.stat-icon svg {
+    width: 24px;
+    height: 24px;
+    color: #d6a84f;
+    stroke-width: 1.8;
+}
+
+.stat-card p {
+    margin: 0 0 6px;
+    color: #8e8e8e;
+    font-size: 13px;
+}
+
+.stat-card h2 {
+    margin: 0;
+    color: white;
+    font-size: 28px;
+}
+
+/* dashboard analytics  */
+
+.dashboard-analytics {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 24px;
+
+    margin-top: 30px;
+}
+/* compliance card */
+
+.compliance-card {
+    background: #171717;
+    border: 1px solid #292929;
+    border-radius: 18px;
+    padding: 24px;
+    width: 100%;
+    min-width : 0;
+    box-sizing: border-box;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.card-header h3 {
+    margin: 0;
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.card-header p {
+    margin-top: 6px;
+    color: #888;
+    font-size: 13px;
+}
+
+.card-header select {
+    background: #222;
+    color: #ddd;
+    border: 1px solid #333;
+    padding: 9px 12px;
+    border-radius: 8px;
+    outline: none;
+}
+
+.chart-box {
+    position: relative;
+    height: 280px;
+}
+
+/* risk distribution */
+
+.risk-card {
+    background: #171717;
+    border: 1px solid #292929;
+    border-radius: 18px;
+    padding: 24px;
+    width: 100%;
+    min-width : 0;
+    box-sizing: border-box;
+}
+
+.risk-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 25px;
+}
+
+.risk-header h3 {
+    margin: 0;
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.risk-header p {
+    margin: 6px 0 0;
+    color: #888;
+    font-size: 13px;
+}
+
+.risk-header select {
+    background: #222;
+    color: #ddd;
+    border: 1px solid #333;
+    padding: 9px 12px;
+    border-radius: 8px;
+    outline: none;
+}
+
+
+/* Chart + Legend */
+
+.risk-content {
+    display: flex;
+    align-items: center;
+    gap: 45px;
+}
+
+.risk-chart {
+    width: 230px;
+    height: 230px;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.risk-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    text-align: center;
+    pointer-events: none;
+}
+
+.risk-center strong {
+    display: block;
+    color: white;
+    font-size: 30px;
+}
+
+.risk-center span {
+    color: #888;
+    font-size: 12px;
+}
+
+
+/* Legend */
+
+.risk-legend {
+    flex: 1;
+}
+
+.risk-item {
+    display: grid;
+    grid-template-columns: 12px 1fr auto;
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 13px 0;
+
+    border-bottom: 1px solid #292929;
+}
+
+.risk-item:last-child {
+    border-bottom: none;
+}
+
+.risk-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+}
+
+
+/* Risk indicator colors */
+
+.low {
+    background: #4caf50;
+}
+
+.medium {
+    background: #e5b94c;
+}
+
+.high {
+    background: #e0783e;
+}
+
+.critical {
+    background: #d9534f;
+}
+
+
+.risk-item strong {
+    display: block;
+    color: #eee;
+    font-size: 13px;
+}
+
+.risk-item small {
+    display: block;
+    color: #777;
+    margin-top: 3px;
+    font-size: 11px;
+}
+
+.risk-item b {
+    color: white;
+    font-size: 13px;
+}
+
+/* new inspection */
+
+.inspection-card {
+
+    grid-column: 1 / -1;
+
+    background: #171717;
+
+    border: 1px solid #292929;
+
+    border-radius: 18px;
+
+    padding: 24px;
+
+    width: 100%;
+
+    min-width : 0;
+
+    box-sizing: border-box;
+}
+
+
+/* Header */
+
+.inspection-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 22px;
+}
+
+.inspection-header h3 {
+    margin: 0;
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.inspection-header p {
+    margin: 6px 0 0;
+    color: #888;
+    font-size: 13px;
+}
+
+
+/* View All button */
+
+.view-all-btn {
+    background: transparent;
+    border: 1px solid #333;
+    color: #d6a84f;
+
+    padding: 9px 14px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.view-all-btn:hover {
+    background: #d6a84f;
+    color: #111;
+}
+
+
+/* Table */
+
+.inspection-table {
+    width: 100%;
+}
+
+
+/* Rows */
+
+.inspection-row {
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        1.5fr
+        1.2fr
+        1fr
+        1fr
+        70px;
+
+    align-items: center;
+
+    padding: 17px 10px;
+
+    border-bottom: 1px solid #292929;
+
+    color: #bdbdbd;
+
+    font-size: 13px;
+}
+
+
+/* Header row */
+
+.inspection-head {
+    padding-top: 5px;
+    padding-bottom: 12px;
+
+    color: #666;
+
+    font-size: 11px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.5px;
+}
+
+
+/* Mine name */
+
+.mine-name {
+    color: white;
+    font-weight: 500;
+}
+
+
+/* Status */
+
+.status {
+    display: inline-flex;
+
+    padding: 5px 9px;
+
+    border-radius: 20px;
+
+    font-size: 11px;
+
+    width: fit-content;
+}
+
+
+/* Completed */
+
+.completed {
+    background: rgba(76, 175, 80, 0.12);
+    color: #72c978;
+}
+
+
+/* Pending */
+
+.pending {
+    background: rgba(214, 168, 79, 0.12);
+    color: #d6a84f;
+}
+
+
+/* Under review */
+
+.review {
+    background: rgba(224, 120, 62, 0.12);
+    color: #e0783e;
+}
+
+
+/* View button */
+
+.view-btn {
+    background: none;
+
+    border: none;
+
+    color: #888;
+
+    cursor: pointer;
+
+    font-size: 12px;
+}
+
+.view-btn:hover {
+    color: #d6a84f;
+}
+
+/* recent alerts and top violations */
+
+/* =================================
+   RECENT ALERTS + TOP VIOLATIONS
+================================= */
+
+.alerts-violations-row {
+    margin-top: 24px;
+}
+
+
+/* Both cards */
+
+.alerts-card,
+.violations-card {
+    background: #171717;
+    border: 1px solid #292929;
+    border-radius: 18px;
+    padding: 24px;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+
+/* Headers */
+
+.alerts-header,
+.violations-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 22px;
+}
+
+
+.alerts-header h3,
+.violations-header h3 {
+    margin: 0;
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+
+.alerts-header p,
+.violations-header p {
+    margin: 6px 0 0;
+    color: #888;
+    font-size: 13px;
+}
+
+
+/* ================================
+   RECENT ALERTS
+================================ */
+
+.alert-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 15px 0;
+    border-bottom: 1px solid #292929;
+}
+
+
+.alert-item:last-child {
+    border-bottom: none;
+}
+
+
+.alert-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+}
+
+
+.alert-icon svg {
+    width: 19px;
+    height: 19px;
+}
+
+
+.alert-icon.warning {
+    background: rgba(214, 168, 79, 0.12);
+    color: #d6a84f;
+}
+
+
+.alert-icon.danger {
+    background: rgba(217, 83, 79, 0.12);
+    color: #d9534f;
+}
+
+
+.alert-icon.info {
+    background: rgba(76, 175, 80, 0.12);
+    color: #72c978;
+}
+
+
+.alert-info {
+    flex: 1;
+}
+
+
+.alert-info strong {
+    display: block;
+    color: #eee;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+
+.alert-info span {
+    display: block;
+    color: #777;
+    font-size: 11px;
+    margin-top: 4px;
+}
+
+
+/* Alert status */
+
+.alert-status {
+    padding: 5px 9px;
+    border-radius: 20px;
+    font-size: 10px;
+}
+
+
+.high-alert {
+    background: rgba(224, 120, 62, 0.12);
+    color: #e0783e;
+}
+
+
+.critical-alert {
+    background: rgba(217, 83, 79, 0.12);
+    color: #d9534f;
+}
+
+
+.normal-alert {
+    background: rgba(76, 175, 80, 0.12);
+    color: #72c978;
+}
+
+
+.medium-alert {
+    background: rgba(214, 168, 79, 0.12);
+    color: #d6a84f;
+}
+
+
+/* ================================
+   TOP VIOLATIONS
+================================ */
+
+.violation-item {
+    display: grid;
+
+    grid-template-columns: 35px 1fr 120px;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 15px 0;
+
+    border-bottom: 1px solid #292929;
+}
+
+
+.violation-item:last-child {
+    border-bottom: none;
+}
+
+
+.violation-rank {
+    color: #666;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+
+.violation-info strong {
+    display: block;
+    color: #eee;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+
+.violation-info span {
+    display: block;
+    color: #777;
+    font-size: 11px;
+    margin-top: 4px;
+}
+
+
+/* Violation progress */
+
+.violation-bar {
+    height: 5px;
+
+    background: #292929;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+}
+
+
+.violation-bar span {
+    display: block;
+
+    height: 100%;
+
+    background: #d6a84f;
+
+    border-radius: 10px;
+}
+
+/* gis preview  */
+/* =================================
+   GIS PREVIEW
+================================= */
+
+.gis-preview-card {
+
+    margin-top: 24px;
+
+    background: #171717;
+
+    border: 1px solid #292929;
+
+    border-radius: 18px;
+
+    padding: 24px;
+
+    width: 100%;
+
+    box-sizing: border-box;
+}
+
+
+/* Header */
+
+.gis-preview-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 20px;
+}
+
+
+.gis-preview-header h3 {
+
+    margin: 0;
+
+    color: white;
+
+    font-size: 20px;
+
+    font-weight: 600;
+}
+
+
+.gis-preview-header p {
+
+    margin: 6px 0 0;
+
+    color: #888;
+
+    font-size: 13px;
+}
+
+
+/* View full map button */
+
+.gis-view-btn {
+
+    text-decoration: none;
+
+    background: transparent;
+
+    border: 1px solid #333;
+
+    color: #d6a84f;
+
+    padding: 9px 14px;
+
+    border-radius: 8px;
+
+    font-size: 12px;
+
+    transition: 0.2s;
+}
+
+
+.gis-view-btn:hover {
+
+    background: #d6a84f;
+
+    color: #111;
+}
+
+
+/* Map + information */
+
+.gis-preview-content {
+
+    display: grid;
+
+    grid-template-columns: 1fr 210px;
+
+    gap: 20px;
+
+    min-height: 300px;
+}
+
+
+/* Actual map */
+
+#dashboardMap {
+
+    width: 100%;
+
+    height: 600px;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    border: 1px solid #292929;
+}
+
+
+/* Right information */
+
+.gis-preview-info {
+
+    background: #131313;
+
+    border: 1px solid #292929;
+
+    border-radius: 12px;
+
+    padding: 18px;
+}
+
+
+/* Title */
+
+.gis-info-title span {
+
+    color: #d6a84f;
+
+    font-size: 9px;
+
+    letter-spacing: 1.2px;
+}
+
+
+.gis-info-title h4 {
+
+    margin: 7px 0 20px;
+
+    color: white;
+
+    font-size: 17px;
+}
+
+
+/* Stats */
+
+.gis-stat {
+
+    padding: 13px 0;
+
+    border-bottom: 1px solid #292929;
+}
+
+
+.gis-stat span {
+
+    display: block;
+
+    color: #666;
+
+    font-size: 9px;
+
+    letter-spacing: 0.8px;
+}
+
+
+.gis-stat strong {
+
+    display: block;
+
+    margin-top: 5px;
+
+    color: white;
+
+    font-size: 22px;
+}
+
+
+.gis-stat .high-number {
+
+    color: #e0783e;
+}
+
+
+/* Legend */
+
+.gis-risk-legend {
+
+    margin-top: 18px;
+
+    display: grid;
+
+    gap: 9px;
+}
+
+
+.gis-risk-legend div {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: #888;
+
+    font-size: 10px;
+}
+
+
+.gis-dot {
+
+    width: 7px;
+
+    height: 7px;
+
+    border-radius: 50%;
+
+    display: inline-block;
+}
+
+
+.gis-dot.low {
+
+    background: #4caf50;
+}
+
+
+.gis-dot.medium {
+
+    background: #e5b94c;
+}
+
+
+.gis-dot.high {
+
+    background: #e0783e;
+}
+
+
+.gis-dot.critical {
+
+    background: #d9534f;
+}

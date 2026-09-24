@@ -22,7 +22,7 @@ nav {
     top : 0;
     padding : 2vw 10.4vw;
     justify-content: space-between;
-    background-color : #111;
+    background-color : #11111142;
     z-index : 10;
 }
 nav h1{
@@ -66,7 +66,7 @@ nav h1{
 
 
 nav button {
-    background-color : #0BA34E;
+    background-color : BLACK;
     display : flex;
     align-items : center;
     padding  : 10px 14px;
@@ -89,7 +89,7 @@ nav button svg {
     height : 0vh;
     position : absolute;
     top : 100%;
-    background-color: #111;
+    background-color: #1111113a;
     z-index : 9;
     border-bottom : 1px solid #fff;
 
@@ -118,7 +118,17 @@ nav button svg {
     align-items : center;
     justify-content : center;
     overflow : hidden;
-    /* position : relative; */
+    position : relative;
+ }
+
+ .hero {
+    min-height: 100vh;
+
+    background-image: url("291897.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 #page1 h1{
@@ -169,7 +179,7 @@ nav button svg {
 .move{
    display : inline-block;
    animation-name : move;
-   animation-duration: 9s;
+   animation-duration: 7s;
    animation-timing-function : linear; 
    animation-iteration-count: infinite;
 }

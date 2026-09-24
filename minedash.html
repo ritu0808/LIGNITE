@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mine official dashboard</title>
+    <link rel = "stylesheet"  href = "minedash.css">
+     <LINK rel="shortcut icon" href="https://cdn.prod.website-files.com/64a2ab71942e1d57feb6fe39/6528221f95333ff155d01ad2_fav.gif" type="image/x-icon">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+/>
+</head>
+<body>
+<!-- ================================
+     SIDEBAR
+================================ -->
+
+<aside class="sidebar" id="sidebar">
+
+    <!-- Logo -->
+    <div class="sidebar-logo">
+        <span>LIGNITE</span>
+        <button class="close-sidebar" id="closeSidebar">
+            <i data-lucide="x"></i>
+        </button>
+    </div>
+
+
+    <!-- Navigation -->
+    <nav class="sidebar-nav">
+
+        <a href = "#" class="nav-item active">
+            <i data-lucide="layout-dashboard"></i>
+            <span>Dashboard</span>
+        </a>
+
+        <a href="#" class="nav-item">
+            <i data-lucide="pickaxe"></i>
+            <span>Mine Operations</span>
+        </a>
+
+        <a href="#" class="nav-item">
+            <i data-lucide="shield-check"></i>
+            <span>Compliance</span>
+        </a>
+
+        <a href="#" class="nav-item">
+            <i data-lucide="clipboard-check"></i>
+            <span>Inspections</span>
+        </a>
+
+        <a href="#" class="nav-item">
+            <i data-lucide="triangle-alert"></i>
+            <span>Incidents & Actions</span>
+        </a>
+
+        <a href="#" class="nav-item">
+            <i data-lucide="users"></i>
+            <span>Workforce</span>
+        </a>
+
+        <a href="gis.html" class="nav-item">
+            <i data-lucide="map"></i>
+            <span>GIS Map</span>
+        </a>
+
+        <a href="#" class="nav-item">
+            <i data-lucide="file-text"></i>
+            <span>Documents</span>
+        </a>
+
+        <a href="#" class="nav-item">
+            <i data-lucide="bell"></i>
+            <span>Alerts</span>
+
+            <span class="notification-badge">12</span>
+        </a>
+
+        <a href="#" class="nav-item">
+            <i data-lucide="bar-chart-3"></i>
+            <span>Reports</span>
+        </a>
+
+        <a href="#" class="nav-item">
+            <i data-lucide="settings"></i>
+            <span>Settings</span>
+        </a>
+
+    </nav>
+
+
+    <!-- User / Mine Card -->
+    <div class="sidebar-user">
+
+        <div class="user-avatar">
+            <i data-lucide="user"></i>
+        </div>
+
+        <div class="user-details">
+            <strong>Mine Official</strong>
+            <span>Mine Manager</span>
+            <small>Mine 07</small>
+        </div>
+
+    </div>
+
+</aside>
+
+
+<!-- ================================
+     MOBILE / OVERLAY
+================================ -->
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+
+<!-- ================================
+     TOP BAR
+================================ -->
+
+<header class="topbar">
+
+    <button class="menu-btn" id="menuBtn">
+        <i data-lucide="menu"></i>
+    </button>
+
+    <div class="page-title">
+        Mine Official Dashboard
+    </div>
+
+    <div class="topbar-right">
+
+        <button class="top-icon">
+            <i data-lucide="bell"></i>
+            <span>12</span>
+        </button>
+
+        <div class="top-user">
+            <div class="top-avatar">
+                <i data-lucide="user"></i>
+            </div>
+
+            <div>
+                <strong>Mine Official</strong>
+                <small>Mine Manager</small>
+            </div>
+        </div>
+
+    </div>
+
+</header>
+
+<!-- ================================
+     WELCOME SECTION
+================================= -->
+<br><br><br><br>
+<div class="welcome-section">
+
+  
+    <p>
+        Welcome back, <span>Mine Manager</span>
+    </p>
+
+</div>
+
+
+<!-- ================================
+     KPI CARDS
+================================= -->
+
+<div class="stats-container">
+
+    <!-- Compliance Score -->
+    <div class="stat-card compliance-card">
+
+        <div class="stat-icon">
+            <i data-lucide="shield-check"></i>
+        </div>
+
+        <div class="stat-content">
+
+            <p>Compliance Score</p>
+
+            <h2>94.8%</h2>
+
+            <span class="stat-sub green">
+                ↑ 2.4% <span>vs last week</span>
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <!-- Open Issues -->
+    <div class="stat-card issues-card">
+
+        <div class="stat-icon">
+            <i data-lucide="clipboard-list"></i>
+        </div>
+
+        <div class="stat-content">
+
+            <p>Open Issues</p>
+
+            <h2>05</h2>
+
+            <span class="stat-sub orange">
+                3 <span>high priority</span>
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <!-- Inspections Due -->
+    <div class="stat-card inspection-card">
+
+        <div class="stat-icon">
+            <i data-lucide="calendar-clock"></i>
+        </div>
+
+        <div class="stat-content">
+
+            <p>Inspections Due</p>
+
+            <h2>03</h2>
+
+            <span class="stat-sub purple">
+                Within <span>7 days</span>
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <!-- High Risks -->
+    <div class="stat-card risk-card">
+
+        <div class="stat-icon">
+            <i data-lucide="triangle-alert"></i>
+        </div>
+
+        <div class="stat-content">
+
+            <p>High Risks</p>
+
+            <h2>02</h2>
+
+            <span class="stat-sub red">
+                Requires <span>attention</span>
+            </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- =================================
+     MINE OFFICIAL OVERVIEW
+================================= -->
+
+<div class="mine-overview">
+
+
+    <!-- =============================
+         TODAY'S OPERATIONS
+    ============================== -->
+
+    <div class="overview-card operations-card">
+
+        <div class="overview-header">
+
+            <div>
+                <h3>Today's Operations</h3>
+                <p>Current mine operational status</p>
+            </div>
+
+            <span class="updated-time">
+                Updated: 10:30 AM
+            </span>
+
+        </div>
+
+
+        <div class="operation-list">
+
+            <!-- Production -->
+
+            <div class="operation-item">
+
+                <div class="operation-icon">
+                    <i data-lucide="factory"></i>
+                </div>
+
+                <div class="operation-info">
+
+                    <strong>Production</strong>
+
+                    <span>18,450 MT</span>
+
+                    <small>92% of target</small>
+
+                </div>
+
+                <span class="operation-status success">
+                    On Track
+                </span>
+
+            </div>
+
+
+            <!-- Equipment -->
+
+            <div class="operation-item">
+
+                <div class="operation-icon">
+                    <i data-lucide="settings"></i>
+                </div>
+
+                <div class="operation-info">
+
+                    <strong>Equipment Status</strong>
+
+                    <span>23 / 24</span>
+
+                    <small>Operational</small>
+
+                </div>
+
+                <span class="operation-status success">
+                    Healthy
+                </span>
+
+            </div>
+
+
+            <!-- Workforce -->
+
+            <div class="operation-item">
+
+                <div class="operation-icon">
+                    <i data-lucide="users"></i>
+                </div>
+
+                <div class="operation-info">
+
+                    <strong>Workforce Attendance</strong>
+
+                    <span>478 / 512</span>
+
+                    <small>93.4% present</small>
+
+                </div>
+
+                <span class="operation-status success">
+                    On Track
+                </span>
+
+            </div>
+
+
+            <!-- Environment -->
+
+            <div class="operation-item">
+
+                <div class="operation-icon">
+                    <i data-lucide="leaf"></i>
+                </div>
+
+                <div class="operation-info">
+
+                    <strong>Environmental Status</strong>
+
+                    <span>AQI 42</span>
+
+                    <small>Good</small>
+
+                </div>
+
+                <span class="operation-status success">
+                    Normal
+                </span>
+
+            </div>
+
+
+            <!-- Safety -->
+
+            <div class="operation-item">
+
+                <div class="operation-icon">
+                    <i data-lucide="shield-check"></i>
+                </div>
+
+                <div class="operation-info">
+
+                    <strong>Safety Observations</strong>
+
+                    <span>07</span>
+
+                    <small>Reported today</small>
+
+                </div>
+
+                <span class="operation-status success">
+                    Reported
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =============================
+         COMPLIANCE DUE
+    ============================== -->
+
+    <div class="overview-card compliance-due-card">
+
+        <div class="overview-header">
+
+            <div>
+                <h3>Compliance Due</h3>
+                <p>Upcoming regulatory requirements</p>
+            </div>
+
+            <button class="overview-link">
+                View All →
+            </button>
+
+        </div>
+
+
+        <div class="compliance-table">
+
+
+            <!-- Table Header -->
+
+            <div class="compliance-row compliance-heading">
+
+                <span>Requirement</span>
+
+                <span>Due Date</span>
+
+                <span>Status</span>
+
+            </div>
+
+
+            <!-- Safety -->
+
+            <div class="compliance-row">
+
+                <span>
+                    Safety Inspection
+                </span>
+
+                <span>
+                    Today, 11:59 PM
+                </span>
+
+                <span class="due-status due">
+                    Due
+                </span>
+
+            </div>
+
+
+            <!-- Environment -->
+
+            <div class="compliance-row">
+
+                <span>
+                    Environmental Report
+                </span>
+
+                <span>
+                    14 Sep 2026
+                </span>
+
+                <span class="due-status upcoming">
+                    Upcoming
+                </span>
+
+            </div>
+
+
+            <!-- Fire -->
+
+            <div class="compliance-row">
+
+                <span>
+                    Fire Safety Audit
+                </span>
+
+                <span>
+                    16 Sep 2026
+                </span>
+
+                <span class="due-status upcoming">
+                    Upcoming
+                </span>
+
+            </div>
+
+
+            <!-- DGMS -->
+
+            <div class="compliance-row">
+
+                <span>
+                    DGMS Return
+                </span>
+
+                <span>
+                    18 Sep 2026
+                </span>
+
+                <span class="due-status on-track">
+                    On Track
+                </span>
+
+            </div>
+
+
+            <!-- First Aid -->
+
+            <div class="compliance-row">
+
+                <span>
+                    First Aid Inspection
+                </span>
+
+                <span>
+                    20 Sep 2026
+                </span>
+
+                <span class="due-status on-track">
+                    On Track
+                </span>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =============================
+         ACTIVE RISKS
+    ============================== -->
+
+    <div class="overview-card active-risks-card">
+
+        <div class="overview-header">
+
+            <div>
+                <h3>Active Risks</h3>
+                <p>Risks requiring attention</p>
+            </div>
+
+            <button class="overview-link">
+                View All →
+            </button>
+
+        </div>
+
+
+        <div class="risk-list">
+
+
+            <!-- HIGH RISK -->
+
+            <div class="risk-item high-risk">
+
+                <div class="risk-icon">
+                    <i data-lucide="triangle-alert"></i>
+                </div>
+
+                <div class="risk-info">
+
+                    <span class="risk-level">
+                        HIGH RISK
+                    </span>
+
+                    <strong>
+                        Slope Instability Observed
+                    </strong>
+
+                    <small>
+                        Zone B • Detected 25 min ago
+                    </small>
+
+                    <p>
+                        Monitoring required
+                    </p>
+
+                </div>
+
+                <i
+                    data-lucide="chevron-right"
+                    class="risk-arrow">
+                </i>
+
+            </div>
+
+
+
+            <!-- MEDIUM RISK -->
+
+            <div class="risk-item medium-risk">
+
+                <div class="risk-icon">
+                    <i data-lucide="triangle-alert"></i>
+                </div>
+
+                <div class="risk-info">
+
+                    <span class="risk-level">
+                        MEDIUM RISK
+                    </span>
+
+                    <strong>
+                        PPE Non-Compliance
+                    </strong>
+
+                    <small>
+                        Workshop Area • 3 occurrences
+                    </small>
+
+                    <p>
+                        Action required
+                    </p>
+
+                </div>
+
+                <i
+                    data-lucide="chevron-right"
+                    class="risk-arrow">
+                </i>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+</div>
+
+<!-- =================================
+     RECENT INSPECTIONS + MINE GIS
+================================= -->
+
+<div class="bottom-dashboard-row">
+
+    <!-- =================================
+         RECENT INSPECTIONS
+    ================================= -->
+
+    <div class="recent-inspections-card">
+
+        <div class="bottom-card-header">
+
+            <div>
+                <h3>Recent Inspections</h3>
+                <p>Latest field inspection activities</p>
+            </div>
+
+            <button class="view-all-btn">
+                View All →
+            </button>
+
+        </div>
+
+
+        <div class="inspection-table">
+
+            <!-- Header -->
+
+            <div class="inspection-row inspection-table-head">
+
+                <span>Inspection</span>
+                <span>Area</span>
+                <span>Inspector</span>
+                <span>Date</span>
+                <span>Status</span>
+
+            </div>
+
+
+            <!-- Inspection 1 -->
+
+            <div class="inspection-row">
+
+                <div class="inspection-name">
+                    <div class="inspection-icon">
+                        <i data-lucide="clipboard-check"></i>
+                    </div>
+
+                    <div>
+                        <strong>Safety Inspection</strong>
+                        <small>INS-0248</small>
+                    </div>
+                </div>
+
+                <span>Mining Zone A</span>
+
+                <span>R. Sharma</span>
+
+                <span>12 Sep 2026</span>
+
+                <span class="inspection-status completed">
+                    Completed
+                </span>
+
+            </div>
+
+
+            <!-- Inspection 2 -->
+
+            <div class="inspection-row">
+
+                <div class="inspection-name">
+                    <div class="inspection-icon">
+                        <i data-lucide="leaf"></i>
+                    </div>
+
+                    <div>
+                        <strong>Environmental Inspection</strong>
+                        <small>INS-0247</small>
+                    </div>
+                </div>
+
+                <span>Processing Area</span>
+
+                <span>A. Verma</span>
+
+                <span>11 Sep 2026</span>
+
+                <span class="inspection-status review">
+                    Under Review
+                </span>
+
+            </div>
+
+
+            <!-- Inspection 3 -->
+
+            <div class="inspection-row">
+
+                <div class="inspection-name">
+                    <div class="inspection-icon">
+                        <i data-lucide="hard-hat"></i>
+                    </div>
+
+                    <div>
+                        <strong>Worker Safety Audit</strong>
+                        <small>INS-0246</small>
+                    </div>
+                </div>
+
+                <span>Workshop Area</span>
+
+                <span>S. Kumar</span>
+
+                <span>10 Sep 2026</span>
+
+                <span class="inspection-status completed">
+                    Completed
+                </span>
+
+            </div>
+
+
+            <!-- Inspection 4 -->
+
+            <div class="inspection-row">
+
+                <div class="inspection-name">
+                    <div class="inspection-icon">
+                        <i data-lucide="truck"></i>
+                    </div>
+
+                    <div>
+                        <strong>Equipment Inspection</strong>
+                        <small>INS-0245</small>
+                    </div>
+                </div>
+
+                <span>Haul Road</span>
+
+                <span>P. Singh</span>
+
+                <span>09 Sep 2026</span>
+
+                <span class="inspection-status pending">
+                    Pending
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =================================
+         MINE GIS OVERVIEW
+    ================================= -->
+
+    <div class="mine-gis-card">
+
+        <div class="bottom-card-header">
+
+            <div>
+                <h3>Mine GIS Overview</h3>
+                <p>Geographic view of your mine</p>
+            </div>
+
+            <a href="gis.html" class="view-all-btn">
+                Full Map →
+            </a>
+
+        </div>
+
+
+        <div class="mine-map-wrapper">
+
+            <div id="mineOfficialMap"></div>
+
+
+            <!-- Map Overlay -->
+
+            <div class="map-overlay">
+
+                <div class="map-overlay-title">
+                    <span class="live-dot"></span>
+                    LIVE MINE MAP
+                </div>
+
+                <div class="map-overlay-location">
+                    Mine 07 • Operational Area
+                </div>
+
+            </div>
+
+
+            <!-- Map Legend -->
+
+            <div class="map-legend">
+
+                <div>
+                    <span class="map-dot low"></span>
+                    Low Risk
+                </div>
+
+                <div>
+                    <span class="map-dot medium"></span>
+                    Medium
+                </div>
+
+                <div>
+                    <span class="map-dot high"></span>
+                    High Risk
+                </div>
+
+                <div>
+                    <span class="map-dot critical"></span>
+                    Critical
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- GIS Bottom Information -->
+
+        <div class="gis-bottom-info">
+
+            <div>
+                <span>ACTIVE ZONES</span>
+                <strong>06</strong>
+            </div>
+
+            <div>
+                <span>INSPECTION POINTS</span>
+                <strong>14</strong>
+            </div>
+
+            <div>
+                <span>ACTIVE RISKS</span>
+                <strong class="gis-risk-number">02</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+</div>
+
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js" integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js" integrity="sha512-P2IDYZfqSwjcSjX0BKeNhwRUH8zRPGlgcWl5n6gBLzdi4Y5/0O4zaXrtO4K9TZK6Hn1BenYpKowuCavNandERg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+ <script src="https://unpkg.com/lucide@latest"></script>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+ <script src = "minedash.js"></script>
+</body>
+</html>
